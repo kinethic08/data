@@ -45,12 +45,4 @@ jobs:
         BRANCH: gh-pages
         FOLDER: _site
         CLEAN: true
-    - name: Waiting 4 minutes for staging data deployment
-      run: |
-        sleep 240
-    - name: Rebuild site
-      run: |
-        curl -X POST https://api.github.com/repos/sdg-ghana/site/dispatches \
-        -H "Accept: application/vnd.github.everest-preview+json" \
-        -H "Authorization: token ${{secrets.token}}" \
-        --data '{"event_type": "rebuild-staging"}'
+    
